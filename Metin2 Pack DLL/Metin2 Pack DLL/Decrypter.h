@@ -1,0 +1,62 @@
+#ifndef __DECRYPTER__
+#define __DECRYPTER__
+
+// Utility decompress function
+__declspec(naked) extern void ASM_LZO_FUNC1()
+{
+	__asm
+	{
+		//inData (Byte fro file)
+		MOV EDX, DWORD PTR SS:[ESP + 8]
+		//lzoData (Byte Null)
+		MOV ECX, DWORD PTR SS:[ESP + 4]
+		PUSH EBX
+		PUSH EBP
+		PUSH ESI
+		//array (gLZOData)
+		MOV ESI, DWORD PTR SS:[ESP + 24]
+		PUSH EDI
+		MOV EAX, 0xC6EF3720
+		MOV EDI, 0x20
+		LEA EBX, DWORD PTR DS:[EBX]
+LABEL1:
+		MOV EBX, EDX
+		SHR EBX, 0x5
+		MOV EBP, EDX
+		SHL EBP, 0x4
+		XOR EBX, EBP
+		MOV EBP, EAX
+		SHR EBP, 0x0B
+		AND EBP, 0x03
+		MOV EBP, DWORD PTR DS:[ESI + EBP * 0x04]
+		ADD EBP, EAX
+		ADD EBX, EDX
+		XOR EBX, EBP
+		SUB ECX, EBX
+		MOV EBX, ECX
+		SHR EBX, 0x05
+		MOV EBP, ECX
+		SHL EBP, 0x04
+		XOR EBX, EBP
+		ADD EAX, 0x61C88647
+		MOV EBP, EAX
+		AND EBP, 0x03
+		MOV EBP, DWORD PTR DS:[ESI + EBP * 0x04]
+		ADD EBX, ECX
+		ADD EBP, EAX
+		XOR EBX, EBP
+		SUB EDX, EBX
+		DEC EDI
+	JNZ LABEL1
+		MOV EAX, DWORD PTR SS:[ESP + 0x20]
+		POP EDI
+		POP ESI
+		POP EBP
+		MOV DWORD PTR DS:[EAX], EDX
+		MOV DWORD PTR DS:[EAX + 0x04], ECX
+		POP EBX
+		RETN
+	}
+}
+
+#endif

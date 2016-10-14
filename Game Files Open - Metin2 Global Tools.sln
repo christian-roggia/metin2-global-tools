@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Game Files Open - Metin2 Global Tools", "Game Files Open - Metin2 Global Tools\Game Files Open - Metin2 Global Tools.vbproj", "{C84620D7-F57C-474C-8910-3DEFCA4233CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C84620D7-F57C-474C-8910-3DEFCA4233CE}.Debug|x86.ActiveCfg = Debug|x86
+		{C84620D7-F57C-474C-8910-3DEFCA4233CE}.Debug|x86.Build.0 = Debug|x86
+		{C84620D7-F57C-474C-8910-3DEFCA4233CE}.Release|x86.ActiveCfg = Release|x86
+		{C84620D7-F57C-474C-8910-3DEFCA4233CE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
